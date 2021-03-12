@@ -2,6 +2,20 @@
 
 Like a lot of other machine learning & computer vision researchers, I occasionally stumble across a "wouldn't it be cool it try this?" idea that I normally wouldn't get a chance to work on. I wanted a centralized, non-device specific place to store some of my ramblings, with no expectation of completeness or that it's even remotely not ridiculous, that I could easily share with others to get some feedback (or be told it's already been done before :) ). Below is the list of these ramblings - apologies for any lack of proper grammar, coherency or sanity.
 
+* Active Learning : Why and when is Random sampling better than "Smarter" algorithms?
+  * Idea to explore: Given a true distribution of data, compare how sampling "smartly" vs randomly differs from true distribution, starting with toy functions (using KL divergence). Goal is to separate into classes of which part of the distrubtion math would benefit random vs smart.
+* Hierarchical Representation Learner - https://github.com/Pikus16/hierarchical_representation_learning 
+  * Currently using autoencoder, but can be extended to any unsupervised learner with some assumptions 
+* Add stochastic label noise to self-supervised learning
+* Extensions on top of stochastic label noise paper: https://openreview.net/forum?id=80FMcTSZ6J0https://openreview.net/forum?id=80FMcTSZ6J0
+  * Vary the amount of label corruption in dataset
+  * User different types of noise other than spherical Gaussian
+  * Use label smoothing instead of SLN, but use new label smoothing on every iteration   
+* Graph Convolutional Networks with varying # of nodes
+  * In regular convolutional neural network, the number of channels vary with each convolutional layer (aka adding more filters). Add this same property to a graph convolutional neural network. (This likely already exists. TODO is to check on this)
+* Different freezing
+  * (Almost certainly has been done before, just for my curiosity)
+  * Take a pre-trained network and try different freezing fine-tuning on some full dataset (probably CIFAR). Ex: Freeze first 4, 3, 2, 1, layers. Freeze first half of network. Freeze second half of network (so first half is retrained).   
 * Learned Augmentation for Domain Adaptation
   * Problem: Given a source dataset with lots of samples and labels, can we learn well on a target with either few samples, or lots of samples but few labels?
   * Many approaches focus on changing the feature extractor (starting from a source) to extract better on the target (like [MinimaxEntropy](https://arxiv.org/abs/1904.06487) or [Fully Test Time Adaptation](https://arxiv.org/abs/2006.10726)). However, changing a feature extractor can be problematic, especially if we have few samples / labels. One solution could be to augment the images in the target domain to more closely resemble the images in the source domain. Given a classifier trained on source data (CS), we want some operation G that takes in an image and outputs some similarly shaped image (like an autoencoder). If G(target data) ~ source data, then CS(G(target data)) will classify on target data. (Classifier is used here for simplicity, although the larger point is the underlying feature extractor rather than the specific task).
