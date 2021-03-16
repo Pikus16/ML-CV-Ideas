@@ -10,7 +10,10 @@ Like a lot of other machine learning & computer vision researchers, I occasional
 * Extensions on top of stochastic label noise paper: https://openreview.net/forum?id=80FMcTSZ6J0https://openreview.net/forum?id=80FMcTSZ6J0
   * Vary the amount of label corruption in dataset
   * User different types of noise other than spherical Gaussian
-  * Use label smoothing instead of SLN, but use new label smoothing on every iteration   
+  * Use label smoothing instead of SLN, but use new label smoothing on every iteration 
+* Extensions on top of Supermasks in Superposition (paper: https://arxiv.org/abs/2006.14769)
+  * Add self-supervision (start with scenario GG)
+  * Instead of learning binary, k-thresholded mask, use score as weighting --> instead of a mask of 1's and 0's, a probability mask that weighs every weight (so float mask from 0.0 to 1.0)  
 * Graph Convolutional Networks with varying # of nodes
   * In regular convolutional neural network, the number of channels vary with each convolutional layer (aka adding more filters). Add this same property to a graph convolutional neural network. (This likely already exists. TODO is to check on this)
 * Different freezing
