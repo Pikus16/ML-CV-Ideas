@@ -7,8 +7,6 @@ Like a lot of other machine learning & computer vision researchers, I occasional
 * Hierarchical Representation Learner - https://github.com/Pikus16/hierarchical_representation_learning 
   * Currently using autoencoder, but can be extended to any unsupervised learner with some assumptions 
 * Add stochastic label noise to self-supervised learning
-* Contrastive learning in feature space
-* Copy-pase augmentation variant in feature space: https://arxiv.org/pdf/2012.07177v1.pdf
 * Extensions on top of stochastic label noise paper: https://openreview.net/forum?id=80FMcTSZ6J0https://openreview.net/forum?id=80FMcTSZ6J0
   * Vary the amount of label corruption in dataset
   * User different types of noise other than spherical Gaussian
@@ -18,6 +16,15 @@ Like a lot of other machine learning & computer vision researchers, I occasional
   * Instead of learning binary, k-thresholded mask, use score as weighting --> instead of a mask of 1's and 0's, a probability mask that weighs every weight (so float mask from 0.0 to 1.0). A quick attempt at this can be seen here (orange line, which is the same for all the graphs): ![Weighted Supermask](https://github.com/Pikus16/supsup/blob/master/images/weighted_seed0_gg_splitcifar100.png) 
 * Graph Convolutional Networks with varying # of nodes
   * In regular convolutional neural network, the number of channels vary with each convolutional layer (aka adding more filters). Add this same property to a graph convolutional neural network. (This likely already exists. TODO is to check on this)
+* Working Directly in Feature Space
+  * Contrastive learning in feature space
+  * Copy-pase augmentation variant in feature space: https://arxiv.org/pdf/2012.07177v1.pdf
+  * Weighted Examples in Feature Space
+    * Given two feature-space fectors Fi and Fj, with one-hot encoded labels yi = [0,0,1,0] and yj = [0,1,0,0] (as an example), create a new feature vector Fk = Fi + lambda * Fj, with label yk = scaled(yi + lambda * y_j), where scaled is some choice of scaling function to make sure the probabilities add up to 1 (ex: softmax). 
+    * This new feature vector can be used for learning a classification / object detection head, or fed into another network for more downstream tasks. 
+    * It may make sense to first pretrain the feature extractor to build decent representations before combining.
+    * Could be expanded to more than two vectors.
+    * A significant part of the benefit in this would come from the soft label, which have been shown to provide very good results in several different papers.
 * Different freezing
   * (Almost certainly has been done before, just for my curiosity)
   * Take a pre-trained network and try different freezing fine-tuning on some full dataset (probably CIFAR). Ex: Freeze first 4, 3, 2, 1, layers. Freeze first half of network. Freeze second half of network (so first half is retrained).   
