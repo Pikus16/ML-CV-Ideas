@@ -7,6 +7,8 @@ Like a lot of other machine learning & computer vision researchers, I occasional
 * Hierarchical Representation Learner - https://github.com/Pikus16/hierarchical_representation_learning 
   * Currently using autoencoder, but can be extended to any unsupervised learner with some assumptions 
 * Add stochastic label noise to self-supervised learning
+* Contrastive learning in feature space
+* Copy-pase augmentation variant in feature space: https://arxiv.org/pdf/2012.07177v1.pdf
 * Extensions on top of stochastic label noise paper: https://openreview.net/forum?id=80FMcTSZ6J0https://openreview.net/forum?id=80FMcTSZ6J0
   * Vary the amount of label corruption in dataset
   * User different types of noise other than spherical Gaussian
