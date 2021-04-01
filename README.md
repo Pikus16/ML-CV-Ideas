@@ -25,8 +25,12 @@ Like a lot of other machine learning & computer vision researchers, I occasional
     * It may make sense to first pretrain the feature extractor to build decent representations before combining.
     * Could be expanded to more than two vectors.
     * A significant part of the benefit in this would come from the soft label, which have been shown to provide very good results in several different papers.
+* Adversarial attacks at each layer
+  *  Adversarial attacks are done on image space, and there is some evidence that adversarial robust training's impact is largely on the early layers of the network. Try injecting adversarial noise at each layer and see how it impacts results, and especially if the max magnitude of perturbation needs to be increased. Hypothesis - injecting perturbations later into the network will have less impact on results.
+  *  Can be expanded to more interesting explorations of early layer and its impact on learning.
+  *  Paper for reference: https://arxiv.org/pdf/2004.12385.pdf 
 * Different freezing
-  * (Almost certainly has been done before, just for my curiosity)
+  * (Has been done before, just for my curiosity)
   * Take a pre-trained network and try different freezing fine-tuning on some full dataset (probably CIFAR). Ex: Freeze first 4, 3, 2, 1, layers. Freeze first half of network. Freeze second half of network (so first half is retrained).   
 * Learned Augmentation for Domain Adaptation
   * Problem: Given a source dataset with lots of samples and labels, can we learn well on a target with either few samples, or lots of samples but few labels?
