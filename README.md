@@ -16,6 +16,8 @@ Like a lot of other machine learning & computer vision researchers, I occasional
   * Instead of learning binary, k-thresholded mask, use score as weighting --> instead of a mask of 1's and 0's, a probability mask that weighs every weight (so float mask from 0.0 to 1.0). A quick attempt at this can be seen here (orange line, which is the same for all the graphs): ![Weighted Supermask](https://github.com/Pikus16/supsup/blob/master/images/weighted_seed0_gg_splitcifar100.png) 
 * Graph Convolutional Networks with varying # of nodes
   * In regular convolutional neural network, the number of channels vary with each convolutional layer (aka adding more filters). Add this same property to a graph convolutional neural network. (This likely already exists. TODO is to check on this)
+* More complicated loss functions
+  * How does complexity of loss function affect performance? In particular, does adding extra challenges to get to loss basin improve performance? Partially inspired by "The Deep Bootstrap: Good Online Learners are Good Offline Generalizers" and "What's being Transferred Where" 
 * Working Directly in Feature Space
   * Contrastive learning in feature space
   * Copy-pase augmentation variant in feature space: https://arxiv.org/pdf/2012.07177v1.pdf
