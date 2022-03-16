@@ -4,6 +4,8 @@ Like a lot of other machine learning & computer vision researchers, I occasional
 
 * Active Learning : Why and when is Random sampling better than "Smarter" algorithms?
   * Idea to explore: Given a true distribution of data, compare how sampling "smartly" vs randomly differs from true distribution, starting with toy functions (using KL divergence). Goal is to separate into classes of which part of the distrubtion math would benefit random vs smart.
+* Virtual Outlier Synthesis (VOS) by Prediction Depth
+  * The VOS paper (https://arxiv.org/abs/2202.01197) introduced a gaussian mixture model at the final layer to generate outliers that were then fed into a classifier to predict in or out-of-distribution data. One potential concern is that this is only using information in the last layer. The paper showed an experiment where using an earlier layer to generate the outliers got slightly worse results. Perhaps the ideal version would be to compute this across multiple layers and combine (an experiment to try). It would also be interesting to run this across examples and see how VOS related to prediction depth (https://arxiv.org/abs/2106.09647).  Exactly how to examine VOS on a per example basis would need to be determined.
 * Hierarchical Representation Learner - https://github.com/Pikus16/hierarchical_representation_learning 
   * Currently using autoencoder, but can be extended to any unsupervised learner with some assumptions 
 * Add stochastic label noise to self-supervised learning
